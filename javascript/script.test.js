@@ -4,41 +4,38 @@
 // -it returns words
 // -it returns morse code
 
-//SHOULD ADD
-//info on how translates eg the spaces in the morse code are actually / slashes
+const { translateToMorse, translateToText, noInput } = require("./script");
 
-const { translateToMorse, translateToText } = require("./script");
-
-describe("Morse Code Translation", () => {
+describe("morse code tests", () => {
   it("returns the translation of text to morse code", () => {
-    it("Translates a word to Morse code", () => {
-      const text = "HELLO";
+    it("translates a word to morse code", () => {
+      const text = "hello";
       const expectedMorse = ".... . .-.. .-.. ---";
       expect(translateToMorse(text)).toBe(expectedMorse);
     });
 
-    it("Translates a sentence to Morse code", () => {
-      const text = "HELLO WORLD";
+    it("translates a sentence to morse code", () => {
+      const text = "hello world";
       const expectedMorse = ".... . .-.. .-.. --- / .-- --- .-. .-.. -..";
       expect(translateToMorse(text)).toBe(expectedMorse);
     });
 
-    // Add more tests for different cases
+    it("Should throw an error if textarea empty", () => {
+      expect(inputField === "").toThrow(noInput);
+    });
   });
 
-  describe("Morse Code to Text", () => {
-    it("Translates Morse code to a word", () => {
+  describe("morse code to text", () => {
+    it("returns morse code as text", () => {
       const morse = ".... . .-.. .-.. ---";
       const expectedText = "HELLO";
       expect(translateToText(morse)).toBe(expectedText);
     });
 
-    it("Translates Morse code to a sentence", () => {
+    it("returns morse code as a sentence", () => {
       const morse = ".... . .-.. .-.. --- / .-- --- .-. .-.. -..";
       const expectedText = "HELLO WORLD";
       expect(translateToText(morse)).toBe(expectedText);
     });
-
-    // Add more tests for different cases
   });
 });

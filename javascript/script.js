@@ -53,11 +53,16 @@ const inputField = document.getElementById("input");
 const translateButton = document.getElementById("translate");
 const outputField = document.getElementById("output");
 
+const noInput = new Error("No Input Provided");
+
+
+
 translateButton.addEventListener("click", () => {
   const inputText = inputField.value.trim().toUpperCase();
   if (inputField === "") {
-    outputField.textContent = "No Input Provided";
-    return;
+    throw noInput;
+    // outputField.textContent = "No Input Provided";
+    // return;
   }
 
   if (inputText.includes(".")) {
