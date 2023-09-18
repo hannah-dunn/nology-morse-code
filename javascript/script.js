@@ -54,8 +54,7 @@ const translateButton = document.getElementById("translate");
 const outputField = document.getElementById("output");
 
 const noInput = new Error("No Input Provided");
-
-
+const cantRead = new Error("Cannot translate special characters(e.g !@#$%)");
 
 translateButton.addEventListener("click", () => {
   const inputText = inputField.value.trim().toUpperCase();

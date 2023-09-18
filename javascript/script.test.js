@@ -4,7 +4,12 @@
 // -it returns words
 // -it returns morse code
 
-const { translateToMorse, translateToText, noInput } = require("./script");
+const {
+  translateToMorse,
+  translateToText,
+  noInput,
+  cantRead,
+} = require("./script");
 
 describe("morse code tests", () => {
   it("returns the translation of text to morse code", () => {
@@ -22,6 +27,10 @@ describe("morse code tests", () => {
 
     it("Should throw an error if textarea empty", () => {
       expect(inputField === "").toThrow(noInput);
+    });
+
+    it("should throw an error if special characters are used", () => {
+      expect(inputField === "/W/").toThrow(cantRead);
     });
   });
 
